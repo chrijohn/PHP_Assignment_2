@@ -48,11 +48,9 @@ if ($_GET['action'] == 'deleteall')
 	
 	if ($conn->query($sql) === true)
 	{
-		echo "Record deleted sucessfully";
 	}
 	else
 	{
-		echo "ERROR DELETING RECORD:" . $conn->error;
 	}
 }
 if ($_GET['action'] == 'deleteMovie')
@@ -63,11 +61,9 @@ if ($_GET['action'] == 'deleteMovie')
 	
 	if ($conn->query($sql) === true)
 	{
-		echo "Record deleted sucessfully";
 	}
 	else
 	{
-		echo "ERROR DELETING RECORD:" . $conn->error;
 	}
 }
 if ($_GET['action'] == 'addmovie')
@@ -92,6 +88,8 @@ echo '<form action = "http://web.engr.oregonstate.edu/~chrijohn/CS290/PHP2/PHP_A
 if ($_GET['action'] == 'filter')
 {
 	$filter = $_POST['catFilter'];
+	echo $filter;
+	echo $_POST['catFilter'];
 	$sql = "SELECT id, name, category, length, rented FROM videoInventory WHERE category = '$filter'";
 	$table = $conn->query($sql);
 	
