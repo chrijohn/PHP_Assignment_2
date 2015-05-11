@@ -88,8 +88,6 @@ echo '<form action = "http://web.engr.oregonstate.edu/~chrijohn/CS290/PHP2/PHP_A
 if ($_GET['action'] == 'filter')
 {
 	$filter = $_POST['catFilter'];
-	echo $filter;
-	echo $_POST['catFilter'];
 	$sql = "SELECT id, name, category, length, rented FROM videoInventory WHERE category = '$filter'";
 	$table = $conn->query($sql);
 	
@@ -110,7 +108,13 @@ else
 	while ($category = $categories->fetch_assoc())
 	{
 		$catfilter = $category["category"];
+		if ($catfilter == "")
+		{
+		}
+		else
+		{
 		echo "<option value = $catfilter>" . $category["category"] . "</option>";
+		}
 	}
 	echo '</select>
 	<p><input type="submit" value= "Filter"></p></form></div>';
